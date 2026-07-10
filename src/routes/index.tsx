@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SiteNav } from "@/components/home/SiteNav";
+import { PageShell } from "@/components/layout/PageShell";
 import { Hero } from "@/components/home/Hero";
 import { TrustedBy } from "@/components/home/TrustedBy";
 import { Capabilities } from "@/components/home/Capabilities";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { CtaBand } from "@/components/home/CtaBand";
-import { SiteFooter } from "@/components/home/SiteFooter";
 
 const TITLE = "VTS Universe Sdn Bhd — Aerial LiDAR & Geospatial Mapping";
 const DESCRIPTION =
@@ -27,16 +26,12 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <SiteNav />
-      <main>
-        <Hero />
-        <TrustedBy />
-        <Capabilities />
-        <AboutPreview />
-        <CtaBand />
-      </main>
-      <SiteFooter />
-    </div>
+    <PageShell>
+      <Hero />
+      <TrustedBy />
+      <Capabilities />
+      <AboutPreview />
+      <CtaBand />
+    </PageShell>
   );
 }
