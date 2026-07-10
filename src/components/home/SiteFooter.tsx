@@ -1,12 +1,16 @@
+import logoAsset from "@/assets/vtslogo.png.asset.json";
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-[image:var(--gradient-brand)] text-primary-foreground text-sm font-bold">
-              V
-            </span>
+            <img
+              src={logoAsset.url}
+              alt="VTS Universe Sdn Bhd logo"
+              className="h-9 w-auto"
+            />
             <span className="text-sm font-semibold text-foreground">VTS Universe Sdn Bhd</span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
