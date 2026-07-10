@@ -2,11 +2,11 @@ import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/vtslogo.png.asset.json";
 
 const links = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "#about" },
-  { label: "Services", to: "#services" },
-  { label: "Experiences", to: "#experiences" },
-  { label: "Contact", to: "#contact" },
+  { label: "Home", to: "/" as const, exact: true },
+  { label: "About", to: "/about" as const },
+  { label: "Services", to: "/services" as const },
+  { label: "Experiences", to: "/experiences" as const },
+  { label: "Contact", to: "/contact" as const },
 ];
 
 export function SiteNav() {
@@ -25,21 +25,23 @@ export function SiteNav() {
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a
+            <Link
               key={l.label}
-              href={l.to}
+              to={l.to}
+              activeOptions={{ exact: l.exact }}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              activeProps={{ className: "text-primary" }}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
-        <a
-          href="#contact"
+        <Link
+          to="/contact"
           className="inline-flex h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
         >
           Get in touch
-        </a>
+        </Link>
       </div>
     </header>
   );
