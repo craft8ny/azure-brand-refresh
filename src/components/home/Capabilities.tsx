@@ -20,7 +20,7 @@ const items = [
 
 export function Capabilities() {
   return (
-    <section id="services" className="mx-auto max-w-7xl px-6 py-24">
+    <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="max-w-2xl">
         <span className="text-xs font-medium uppercase tracking-widest text-accent">
           Capabilities

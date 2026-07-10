@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-drone.jpg";
 
 export function Hero() {
@@ -24,18 +25,18 @@ export function Hero() {
             for the industries that build modern infrastructure.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#services"
+            <Link
+              to="/services"
               className="inline-flex h-11 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-0.5"
             >
               Explore services
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              to="/contact"
               className="inline-flex h-11 items-center rounded-md border border-border bg-card px-6 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
             >
               Talk to our team
-            </a>
+            </Link>
           </div>
         </div>
         <div className="relative">

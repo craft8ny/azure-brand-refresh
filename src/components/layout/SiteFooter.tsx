@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/vtslogo.png.asset.json";
 
 export function SiteFooter() {
@@ -21,10 +22,10 @@ export function SiteFooter() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-foreground">Explore</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li><a href="#about" className="hover:text-primary">About</a></li>
-            <li><a href="#services" className="hover:text-primary">Services</a></li>
-            <li><a href="#experiences" className="hover:text-primary">Experiences</a></li>
-            <li><a href="#contact" className="hover:text-primary">Contact</a></li>
+            <li><Link to="/about" className="hover:text-primary">About</Link></li>
+            <li><Link to="/services" className="hover:text-primary">Services</Link></li>
+            <li><Link to="/experiences" className="hover:text-primary">Experiences</Link></li>
+            <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
           </ul>
         </div>
         <div>

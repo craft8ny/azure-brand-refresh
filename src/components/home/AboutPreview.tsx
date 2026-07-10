@@ -7,7 +7,7 @@ const stats = [
 
 export function AboutPreview() {
   return (
-    <section id="about" className="bg-card">
+    <section className="bg-card">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:items-center">
         <div>
           <span className="text-xs font-medium uppercase tracking-widest text-accent">
