@@ -75,14 +75,22 @@ function AboutPage() {
           </h2>
           <p className="mt-6 text-muted-foreground">
             Previously known as Vectory Techno Solutions, VTS Universe Sdn Bhd
-            was incorporated in January 2016 as a service provider focused on
-            technological solutions for survey and mapping, defense, mining,
-            agriculture, natural disaster monitoring, and real estate.
+            which was incorporated in January 2016, is a service provider that
+            focuses on technological solutions for various industries such as
+            general survey and mapping, defense, mining, agriculture, natural
+            disaster monitoring and real estate/properties. We have successfully
+            providing solutions for aerial mapping and space borne mapping
+            (LiDAR mapping, 3D modelling, aerial photo, remote sensing) and
+            also other geospatial services such as conventional surveys, GIS
+            and GPS.
           </p>
           <p className="mt-4 text-muted-foreground">
-            We have successfully delivered solutions for aerial and space-borne
-            mapping — LiDAR mapping, 3D modelling, aerial photography and
-            remote sensing — alongside conventional GIS and GPS surveys.
+            Our experts and engineers progressively introduce new technologies
+            & improvised current technologies to cater more and more needs from
+            other industries as well. While our consultancy services helps our
+            clients identify specific business needs, applications and
+            processes that are made possible through latest state-of-the-art
+            technology.
           </p>
         </div>
         <div
@@ -101,21 +109,41 @@ function AboutPage() {
           <div className="order-1 md:order-2">
             <span className="text-xs font-medium uppercase tracking-widest text-accent">Mission</span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              Providing the best solutions to all clients' geospatial needs
+              Providing the Best Solutions to All Clients Geospatial Needs
             </h2>
             <p className="mt-6 text-muted-foreground">
-              At VTS Universe we believe in nurturing ideas and innovation
-              that bring measurable value to our clients — helping contractors
-              and service providers better manage their projects with accurate,
-              actionable spatial data.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              Whether you are running a large corridor survey or a single
-              precision inspection, we have the building blocks to launch cost
-              effective, rapid solutions.
+              In VTS UNIVERSE, we believe in nurturing ideas and innovation
+              that would bring values to our clients so that they can better
+              manage their projects. Whether you are a project contractors or a
+              service provider, we have the building blocks to create the
+              applications that are only limited by your imagination. You can
+              rely on our expertise, to launch your solutions and services with
+              very cost effective and rapid solutions.
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr,1fr] md:items-center">
+        <div>
+          <span className="text-xs font-medium uppercase tracking-widest text-accent">Vision</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Building the Platform for Tomorrow's Technology
+          </h2>
+          <p className="mt-6 text-muted-foreground">
+            VTS UNIVERSE services/products are built on state of the art
+            technologies ensuring the best Geospatial solutions in the
+            ever-changing technology world. We have a team of highly skilled
+            survey specialists with expertise ranging from professional
+            consultancy, data management, GIS solutions, and Remote sensing
+            technologies.
+          </p>
+        </div>
+        <div
+          className="aspect-[4/3] rounded-2xl shadow-[var(--shadow-elegant)]"
+          style={{ background: "var(--gradient-brand)" }}
+          aria-hidden
+        />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24">
