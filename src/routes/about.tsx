@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
+import companyAsset from "@/assets/about-company.png.asset.json";
+import missionAsset from "@/assets/about-mission.png.asset.json";
+import visionAsset from "@/assets/about-vision.png.asset.json";
+import ahmadSyuwariAsset from "@/assets/team-ahmad-syuwari.png.asset.json";
+import syahiirAsset from "@/assets/team-syahiir.png.asset.json";
+import abdulRaufAsset from "@/assets/team-abdul-rauf.png.asset.json";
+import shajoerilAsset from "@/assets/team-shajoeril.png.asset.json";
 
 const TITLE = "About VTS Universe — Geospatial Team & Mission";
 const DESCRIPTION =
@@ -22,25 +29,25 @@ export const Route = createFileRoute("/about")({
 
 const team = [
   {
-    initials: "AS",
+    photo: ahmadSyuwariAsset.url,
     name: "Ahmad Syuwari Ahmad Shukri",
     role: "CEO & Co-Founder",
     bio: "B.Sc Hons. Geoinformatics, UTM. Industrial Advisor at the Faculty of Geoinformation and Real Estate, UTM.",
   },
   {
-    initials: "MS",
+    photo: syahiirAsset.url,
     name: "Sr. Muhamad Syahiir Bin Ramli",
     role: "Managing Director",
     bio: "B.Sc Hons. Geomatic Science, UiTM. Member of the Royal Institution of Surveyors Malaysia.",
   },
   {
-    initials: "AR",
+    photo: abdulRaufAsset.url,
     name: "Abdul Rauf Hamzah",
     role: "Operation Director",
     bio: "Dip. Civil Engineering, Polytechnic Sultan Azlan Shah. LiDAR analyst and production lead.",
   },
   {
-    initials: "GS",
+    photo: shajoerilAsset.url,
     name: "GS. Shajoeril Tajudin",
     role: "Co-Founder & Executive Advisor",
     bio: "B.Sc Hons. Remote Sensing, UTM. Professional Member, Institute of Geospatial & Remote Sensing Malaysia.",
@@ -93,18 +100,19 @@ function AboutPage() {
             technology.
           </p>
         </div>
-        <div
-          className="aspect-[4/3] rounded-2xl shadow-[var(--shadow-elegant)]"
-          style={{ background: "var(--gradient-brand)" }}
-          aria-hidden
+        <img
+          src={companyAsset.url}
+          alt="VTS Universe head office"
+          className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
         />
       </section>
 
       <section className="bg-card">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1fr,1.1fr] md:items-center">
-          <div
-            className="order-2 aspect-[4/3] rounded-2xl bg-secondary/50 md:order-1"
-            aria-hidden
+          <img
+            src={missionAsset.url}
+            alt="LiDAR terrain elevation map produced by VTS Universe"
+            className="order-2 aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:order-1"
           />
           <div className="order-1 md:order-2">
             <span className="text-xs font-medium uppercase tracking-widest text-accent">Mission</span>
@@ -139,10 +147,10 @@ function AboutPage() {
             technologies.
           </p>
         </div>
-        <div
-          className="aspect-[4/3] rounded-2xl shadow-[var(--shadow-elegant)]"
-          style={{ background: "var(--gradient-brand)" }}
-          aria-hidden
+        <img
+          src={visionAsset.url}
+          alt="The VTS Universe team"
+          className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
         />
       </section>
 
@@ -159,12 +167,11 @@ function AboutPage() {
               key={m.name}
               className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
             >
-              <div
-                className="grid h-16 w-16 place-items-center rounded-full text-lg font-semibold text-primary-foreground"
-                style={{ background: "var(--gradient-brand)" }}
-              >
-                {m.initials}
-              </div>
+              <img
+                src={m.photo}
+                alt={m.name}
+                className="h-16 w-16 rounded-full object-cover"
+              />
               <h3 className="mt-5 text-base font-semibold text-foreground">{m.name}</h3>
               <p className="mt-1 text-sm text-accent">{m.role}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
