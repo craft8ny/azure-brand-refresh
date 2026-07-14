@@ -105,12 +105,14 @@ function ContactPage() {
             </div>
           </dl>
 
-          <div
-            className="mt-10 grid h-48 place-items-center rounded-xl border border-border text-primary-foreground"
-            style={{ background: "var(--gradient-brand)" }}
-            aria-hidden
-          >
-            <MapPin className="h-8 w-8 opacity-80" />
+          <div className="mt-10 overflow-hidden rounded-xl border border-border">
+            <iframe
+              title="VTS Universe office location"
+              src="https://www.google.com/maps?q=3.008369,101.669594&hl=en&z=17&output=embed"
+              className="h-64 w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
 
