@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import companyAsset from "@/assets/about-company.png.asset.json";
@@ -101,12 +103,16 @@ function AboutPage() {
       />
 
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr,1fr] md:items-center">
+        <img
+          src={companyAsset.url}
+          alt="VTS Universe head office"
+          className="aspect-[4/3] max-h-[520px] w-full rounded-2xl bg-muted object-cover shadow-[var(--shadow-elegant)]"
+        />
         <div>
-          <span className="text-xs font-medium uppercase tracking-widest text-accent">The Company</span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Engineered by surveyors, built for modern industries
+          <h2 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+            The Company
           </h2>
-          <p className="mt-6 text-muted-foreground">
+          <p className="mt-6 text-justify text-muted-foreground">
             Previously known as Vectory Techno Solutions, VTS Universe Sdn Bhd
             which was incorporated in January 2016, is a service provider that
             focuses on technological solutions for various industries such as
@@ -117,7 +123,7 @@ function AboutPage() {
             also other geospatial services such as conventional surveys, GIS
             and GPS.
           </p>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-justify text-muted-foreground">
             Our experts and engineers progressively introduce new technologies
             & improvised current technologies to cater more and more needs from
             other industries as well. While our consultancy services helps our
@@ -126,26 +132,23 @@ function AboutPage() {
             technology.
           </p>
         </div>
-        <img
-          src={companyAsset.url}
-          alt="VTS Universe head office"
-          className="aspect-[3/4] max-h-[520px] w-full rounded-2xl bg-muted object-contain shadow-[var(--shadow-elegant)]"
-        />
       </section>
 
       <section className="bg-card">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1fr,1.1fr] md:items-center">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr,1fr] md:items-center">
           <img
             src={missionAsset.url}
             alt="LiDAR terrain elevation map produced by VTS Universe"
-            className="order-2 aspect-[16/10] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:order-1"
+            className="aspect-[4/3] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
           />
-          <div className="order-1 md:order-2">
-            <span className="text-xs font-medium uppercase tracking-widest text-accent">Mission</span>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              Providing the Best Solutions to All Clients Geospatial Needs
+          <div>
+            <h2 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+              Mission
             </h2>
-            <p className="mt-6 text-muted-foreground">
+            <p className="mt-4 text-lg font-medium text-foreground">
+              Providing the Best Solutions to All Clients Geospatial Needs.
+            </p>
+            <p className="mt-6 text-justify text-muted-foreground">
               In VTS UNIVERSE, we believe in nurturing ideas and innovation
               that would bring values to our clients so that they can better
               manage their projects. Whether you are a project contractors or a
@@ -159,12 +162,19 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr,1fr] md:items-center">
+        <img
+          src={visionAsset.url}
+          alt="The VTS Universe team"
+          className="aspect-[4/3] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
+        />
         <div>
-          <span className="text-xs font-medium uppercase tracking-widest text-accent">Vision</span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Building the Platform for Tomorrow's Technology
+          <h2 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+            Vision
           </h2>
-          <p className="mt-6 text-muted-foreground">
+          <p className="mt-4 text-lg font-medium text-foreground">
+            Building the Platform for Tomorrow's Technology.
+          </p>
+          <p className="mt-6 text-justify text-muted-foreground">
             VTS UNIVERSE services/products are built on state of the art
             technologies ensuring the best Geospatial solutions in the
             ever-changing technology world. We have a team of highly skilled
@@ -173,11 +183,6 @@ function AboutPage() {
             technologies.
           </p>
         </div>
-        <img
-          src={visionAsset.url}
-          alt="The VTS Universe team"
-          className="aspect-[4/3] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
-        />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24">
@@ -189,23 +194,7 @@ function AboutPage() {
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((m) => (
-            <article
-              key={m.name}
-              className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
-            >
-              <img
-                src={m.photo}
-                alt={m.name}
-                className="h-16 w-16 rounded-full object-cover"
-              />
-              <h3 className="mt-5 text-base font-semibold text-foreground">{m.name}</h3>
-              <p className="mt-1 text-sm text-accent">{m.role}</p>
-              <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
-                {m.credentials.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-            </article>
+            <TeamCard key={m.name} member={m} />
           ))}
         </div>
       </section>
@@ -228,5 +217,38 @@ function AboutPage() {
         </div>
       </section>
     </PageShell>
+  );
+}
+
+function TeamCard({ member }: { member: (typeof team)[number] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <article className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
+      <img
+        src={member.photo}
+        alt={member.name}
+        className="h-16 w-16 rounded-full object-cover"
+      />
+      <h3 className="mt-5 text-base font-semibold text-foreground">{member.name}</h3>
+      <p className="mt-1 text-sm text-accent">{member.role}</p>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="mt-4 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-widest text-accent transition hover:text-primary"
+      >
+        {open ? "Hide details" : "View details"}
+        <ChevronDown
+          className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
+          {member.credentials.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+      )}
+    </article>
   );
 }
