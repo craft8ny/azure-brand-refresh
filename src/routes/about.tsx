@@ -32,25 +32,51 @@ const team = [
     photo: ahmadSyuwariAsset.url,
     name: "Ahmad Syuwari Ahmad Shukri",
     role: "CEO & Co-Founder",
-    bio: "B.Sc Hons. Geoinformatics, UTM. Industrial Advisor at the Faculty of Geoinformation and Real Estate, UTM.",
+    credentials: [
+      "B.Sc Hons. Geoinformatics, UTM",
+      "Industrial Advisor, Faculty of Geoinformation and Real Estate, UTM",
+      "LiDAR Consultant, Madinah Development Authority",
+      "GIS Consultant, GATES Group of Companies",
+      "LiDAR Manager, RS&GIS Consultancy",
+      "Spatial Info Specialist, AAM Group",
+    ],
   },
   {
     photo: syahiirAsset.url,
     name: "Sr. Muhamad Syahiir Bin Ramli",
     role: "Managing Director",
-    bio: "B.Sc Hons. Geomatic Science, UiTM. Member of the Royal Institution of Surveyors Malaysia.",
+    credentials: [
+      "B.Sc Hons. Geomatic Science, UiTM",
+      "Member, Royal Institution of Surveyors Malaysia",
+      "Surveyor, Proform Multisupply",
+      "GIS Analyst, RS & GIS Consultancy Sdn. Bhd.",
+      "Surveyor, Airborne Informatics",
+    ],
   },
   {
     photo: abdulRaufAsset.url,
     name: "Abdul Rauf Hamzah",
     role: "Operation Director",
-    bio: "Dip. Civil Engineering, Polytechnic Sultan Azlan Shah. LiDAR analyst and production lead.",
+    credentials: [
+      "Dip. Civil Engineering, Polytechnic Sultan Azlan Shah",
+      "Production Manager, Pro-Forms",
+      "LiDAR Analyst, RS&GIS Consultancy",
+      "LiDAR Analyst, AAM Pty Ltd",
+    ],
   },
   {
     photo: shajoerilAsset.url,
     name: "GS. Shajoeril Tajudin",
     role: "Co-Founder & Executive Advisor",
-    bio: "B.Sc Hons. Remote Sensing, UTM. Professional Member, Institute of Geospatial & Remote Sensing Malaysia.",
+    credentials: [
+      "B.Sc Hons. Remote Sensing, UTM",
+      "Professional Member, Institute of Geospatial & Remote Sensing Malaysia",
+      "Project Manager, RS&GIS Consultancy",
+      "Spatial Info Consultant, AAM Pty Ltd",
+      "Technical Manager, Airborne Informatics",
+      "Remote Sensing Specialist, Geomatic Science Sdn Bhd",
+      "Research Officer, Forest Research Institute of Malaysia",
+    ],
   },
 ];
 
@@ -103,7 +129,7 @@ function AboutPage() {
         <img
           src={companyAsset.url}
           alt="VTS Universe head office"
-          className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
+          className="aspect-[3/4] max-h-[520px] w-full rounded-2xl bg-muted object-contain shadow-[var(--shadow-elegant)]"
         />
       </section>
 
@@ -112,7 +138,7 @@ function AboutPage() {
           <img
             src={missionAsset.url}
             alt="LiDAR terrain elevation map produced by VTS Universe"
-            className="order-2 aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:order-1"
+            className="order-2 aspect-[16/10] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:order-1"
           />
           <div className="order-1 md:order-2">
             <span className="text-xs font-medium uppercase tracking-widest text-accent">Mission</span>
@@ -150,7 +176,7 @@ function AboutPage() {
         <img
           src={visionAsset.url}
           alt="The VTS Universe team"
-          className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
+          className="aspect-[4/3] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
         />
       </section>
 
@@ -174,7 +200,11 @@ function AboutPage() {
               />
               <h3 className="mt-5 text-base font-semibold text-foreground">{m.name}</h3>
               <p className="mt-1 text-sm text-accent">{m.role}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
+              <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
+                {m.credentials.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>
