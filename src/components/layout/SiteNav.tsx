@@ -120,7 +120,7 @@ export function SiteNav() {
         alt=""
         aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-[9999] select-none will-change-transform transition-[width,height] duration-150 ease-out"
-        style={{ perspective: "400px", width: 28, height: 28 }}
+        style={{ perspective: "400px", width: 28, height: "auto" }}
       />
     )}
     </>
