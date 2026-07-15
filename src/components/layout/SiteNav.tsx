@@ -45,12 +45,12 @@ export function SiteNav() {
       const dx = p.x - p.px;
       const dy = p.y - p.py;
       const speed = Math.hypot(dx, dy);
-      // Reference dimension grows with speed: 28px idle -> ~64px fast
-      const size = Math.min(64, 28 + speed * 1.2);
+      // Reference dimension grows with speed: 34px idle -> ~74px fast
+      const size = Math.min(74, 34 + speed * 1.3);
       // Directional offset from cursor (bottom-right base + drift toward motion)
-      const baseGap = 14;
-      const driftX = Math.max(-24, Math.min(24, dx * 2.5));
-      const driftY = Math.max(-24, Math.min(24, dy * 2.5));
+      const baseGap = 16;
+      const driftX = Math.max(-28, Math.min(28, dx * 2.5));
+      const driftY = Math.max(-28, Math.min(28, dy * 2.5));
       const offsetX = baseGap + driftX;
       const offsetY = baseGap + driftY;
       const rotY = Math.max(-25, Math.min(25, dx * 4));
