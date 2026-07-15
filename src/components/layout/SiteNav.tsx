@@ -43,11 +43,22 @@ export function SiteNav() {
       p.y += (p.ty - p.y) * 0.12;
       const dx = p.x - p.px;
       const dy = p.y - p.py;
+      const speed = Math.hypot(dx, dy);
+      // Size grows with speed: 28px idle -> ~64px fast
+      const size = Math.min(64, 28 + speed * 1.2);
+      // Directional offset from cursor (bottom-right base + drift toward motion)
+      const baseGap = 14;
+      const driftX = Math.max(-24, Math.min(24, dx * 2.5));
+      const driftY = Math.max(-24, Math.min(24, dy * 2.5));
+      const offsetX = baseGap + driftX;
+      const offsetY = baseGap + driftY;
       const rotY = Math.max(-25, Math.min(25, dx * 4));
       const rotX = Math.max(-25, Math.min(25, -dy * 4));
       const el = logoRef.current;
       if (el) {
-        el.style.transform = `translate3d(${p.x - 20}px, ${p.y - 20}px, 0) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
+        el.style.width = `${size}px`;
+        el.style.height = `${size}px`;
+        el.style.transform = `translate3d(${p.x + offsetX}px, ${p.y + offsetY}px, 0) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
       }
       rafRef.current = requestAnimationFrame(tick);
     };
@@ -101,8 +112,8 @@ export function SiteNav() {
         src={logoAsset.url}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-[9999] h-10 w-10 select-none will-change-transform"
-        style={{ perspective: "400px" }}
+        className="pointer-events-none fixed left-0 top-0 z-[9999] select-none will-change-transform transition-[width,height] duration-150 ease-out"
+        style={{ perspective: "400px", width: 28, height: 28 }}
       />
     )}
     </>
