@@ -15,6 +15,7 @@ export function SiteNav() {
   const posRef = useRef({ x: 0, y: 0, tx: 0, ty: 0, px: 0, py: 0 });
   const logoRef = useRef<HTMLImageElement | null>(null);
   const rafRef = useRef<number | null>(null);
+  const aspectRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
