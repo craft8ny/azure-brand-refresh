@@ -60,11 +60,15 @@ export function SiteNav() {
         if (el.naturalWidth > 0 && aspectRef.current === null) {
           aspectRef.current = el.naturalWidth / el.naturalHeight;
         }
-        const aspect = aspectRef.current ?? 1;
-        const width = size;
-        const height = size / aspect;
-        el.style.width = `${width}px`;
-        el.style.height = `${height}px`;
+        const aspect = aspectRef.current;
+        if (aspect) {
+          el.style.width = `${size}px`;
+          el.style.height = `${size / aspect}px`;
+        } else {
+          // Keep the browser's natural ratio until we know the aspect
+          el.style.width = `${size}px`;
+          el.style.height = "auto";
+        }
         el.style.transform = `translate3d(${p.x + offsetX}px, ${p.y + offsetY}px, 0) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
       }
       rafRef.current = requestAnimationFrame(tick);
