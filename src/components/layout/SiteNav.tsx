@@ -15,6 +15,7 @@ export function SiteNav() {
   const posRef = useRef({ x: 0, y: 0, tx: 0, ty: 0, px: 0, py: 0 });
   const logoRef = useRef<HTMLImageElement | null>(null);
   const rafRef = useRef<number | null>(null);
+  const aspectRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -44,7 +45,7 @@ export function SiteNav() {
       const dx = p.x - p.px;
       const dy = p.y - p.py;
       const speed = Math.hypot(dx, dy);
-      // Size grows with speed: 28px idle -> ~64px fast
+      // Reference dimension grows with speed: 28px idle -> ~64px fast
       const size = Math.min(64, 28 + speed * 1.2);
       // Directional offset from cursor (bottom-right base + drift toward motion)
       const baseGap = 14;
@@ -56,8 +57,18 @@ export function SiteNav() {
       const rotX = Math.max(-25, Math.min(25, -dy * 4));
       const el = logoRef.current;
       if (el) {
-        el.style.width = `${size}px`;
-        el.style.height = `${size}px`;
+        if (el.naturalWidth > 0 && aspectRef.current === null) {
+          aspectRef.current = el.naturalWidth / el.naturalHeight;
+        }
+        const aspect = aspectRef.current;
+        if (aspect) {
+          el.style.width = `${size}px`;
+          el.style.height = `${size / aspect}px`;
+        } else {
+          // Keep the browser's natural ratio until we know the aspect
+          el.style.width = `${size}px`;
+          el.style.height = "auto";
+        }
         el.style.transform = `translate3d(${p.x + offsetX}px, ${p.y + offsetY}px, 0) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
       }
       rafRef.current = requestAnimationFrame(tick);
@@ -113,7 +124,7 @@ export function SiteNav() {
         alt=""
         aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-[9999] select-none will-change-transform transition-[width,height] duration-150 ease-out"
-        style={{ perspective: "400px", width: 28, height: 28 }}
+        style={{ perspective: "400px", width: 28, height: "auto" }}
       />
     )}
     </>
