@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import logoAsset from "@/assets/vtslogo.png.asset.json";
 
 const links = [
@@ -10,7 +11,57 @@ const links = [
 ];
 
 export function SiteNav() {
+  const [visible, setVisible] = useState(false);
+  const posRef = useRef({ x: 0, y: 0, tx: 0, ty: 0, px: 0, py: 0 });
+  const logoRef = useRef<HTMLImageElement | null>(null);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(pointer: fine)");
+    if (!mq.matches) return;
+
+    const onMove = (e: MouseEvent) => {
+      posRef.current.tx = e.clientX;
+      posRef.current.ty = e.clientY;
+      if (!visibleRef.current) {
+        posRef.current.x = e.clientX;
+        posRef.current.y = e.clientY;
+        posRef.current.px = e.clientX;
+        posRef.current.py = e.clientY;
+        visibleRef.current = true;
+        setVisible(true);
+      }
+    };
+    const visibleRef = { current: false };
+
+    const tick = () => {
+      const p = posRef.current;
+      p.px = p.x;
+      p.py = p.y;
+      p.x += (p.tx - p.x) * 0.12;
+      p.y += (p.ty - p.y) * 0.12;
+      const dx = p.x - p.px;
+      const dy = p.y - p.py;
+      const rotY = Math.max(-25, Math.min(25, dx * 4));
+      const rotX = Math.max(-25, Math.min(25, -dy * 4));
+      const el = logoRef.current;
+      if (el) {
+        el.style.transform = `translate3d(${p.x - 20}px, ${p.y - 20}px, 0) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener("mousemove", onMove);
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-2">
@@ -44,5 +95,16 @@ export function SiteNav() {
         </Link>
       </div>
     </header>
+    {visible && (
+      <img
+        ref={logoRef}
+        src={logoAsset.url}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-10 w-10 select-none will-change-transform"
+        style={{ perspective: "400px" }}
+      />
+    )}
+    </>
   );
 }
