@@ -185,6 +185,32 @@ function AboutPage() {
         </div>
       </section>
 
+      <section className="bg-card">
+        <div className="mx-auto max-w-5xl px-6 py-24">
+          <div className="max-w-2xl">
+            <span className="text-xs font-medium uppercase tracking-widest text-accent">
+              Watch
+            </span>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              Inside VTS Universe
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              A closer look at our geospatial capabilities, projects and people.
+            </p>
+          </div>
+          <div className="mt-10 aspect-video w-full overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-elegant)]">
+            <iframe
+              className="h-full w-full"
+              src="https://www.youtube.com/embed/u3_d_IQPS1c"
+              title="VTS Universe company video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="max-w-2xl">
           <span className="text-xs font-medium uppercase tracking-widest text-accent">Leadership</span>
