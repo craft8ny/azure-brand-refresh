@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Plane, Ruler, Radar, Check } from "lucide-react";
+import { Plane, Ruler, Radar, Check, Map, Satellite, Drill, GraduationCap } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { CtaBand } from "@/components/home/CtaBand";
@@ -55,10 +55,51 @@ const services = [
     title: "Underground Utility Mapping",
     lead: "Non-intrusive subsurface detection you can build around.",
     items: [
-      "Ground-penetrating radar and multi-sensor detection",
-      "Utility mapping to PAS 128 quality levels",
-      "As-built subsurface records for design teams",
-      "Risk-reduced planning for excavation and construction",
+      "3-Dimensional underground utilities detection survey and mapping",
+      "GIS mapping for underground utilities",
+    ],
+  },
+  {
+    icon: Map,
+    title: "Geographical Information Systems",
+    lead: "Consultancy, system development and database management services.",
+    items: [
+      "GIS plantation tree census (using GPS real-time solution)",
+      "Plantation planning and design (slope, terrain and drainage mapping)",
+      "Environmental risk and hazard mapping",
+      "Map digitizing reprography (transferring hardcopy to softcopy plans)",
+    ],
+  },
+  {
+    icon: Satellite,
+    title: "Satellite-Based Data Mapping",
+    lead: "Satellite imagery and remote-sensing data, processed for decision-makers.",
+    items: [
+      "Satellite image / remote sensing data manipulation and mapping",
+      "Analysis for agriculture, environment and urban development",
+    ],
+  },
+  {
+    icon: Drill,
+    title: "Soil Investigation",
+    lead: "Ground-truth investigation for safe, informed engineering design.",
+    items: [
+      "Borehole drilling",
+      "In-situ testing (SPT, CPT, VST)",
+      "Laboratory testing",
+      "Supporting foundation design, slope stability, soil remediation and risk assessment",
+    ],
+  },
+  {
+    icon: GraduationCap,
+    title: "Training — Geospatial Services",
+    lead: "Hands-on training programs to build in-house geospatial capability.",
+    items: [
+      "Mapping data viewing & manipulation",
+      "GIS / mapping analysis",
+      "Product generation",
+      "On-site survey and mapping",
+      "UAV piloting and mapping",
     ],
   },
 ];
