@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { LogoPlaceholder } from "@/components/ui/ImagePlaceholder";
 import companyAsset from "@/assets/about-company.png.asset.json";
 import missionAsset from "@/assets/about-mission.png.asset.json";
 import visionAsset from "@/assets/about-vision.png.asset.json";
@@ -230,14 +231,9 @@ function AboutPage() {
           <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground">
             Technology Partners
           </p>
-          <div className="mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-6 sm:grid-cols-4 lg:grid-cols-8">
+          <div className="mt-8 grid grid-cols-2 items-center gap-4 sm:grid-cols-4 lg:grid-cols-8">
             {partners.map((p) => (
-              <div
-                key={p}
-                className="flex h-10 items-center justify-center text-sm font-semibold tracking-tight text-muted-foreground/70 grayscale transition hover:text-primary hover:grayscale-0"
-              >
-                {p}
-              </div>
+              <LogoPlaceholder key={p} name={p} />
             ))}
           </div>
         </div>
