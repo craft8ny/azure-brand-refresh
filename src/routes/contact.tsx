@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { type FormEvent } from "react";
 import { Mail, MapPin, Phone, Globe } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
@@ -23,11 +23,31 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [sent, setSent] = useState(false);
-
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const company = String(data.get("company") ?? "");
+    const message = String(data.get("message") ?? "");
+
+    const subject = `New enquiry from ${name}${company ? ` (${company})` : ""}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      company ? `Company: ${company}` : null,
+      "",
+      "Project details:",
+      message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const mailto = `mailto:admin@vectory.com.my?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
   }
 
   return (
@@ -124,12 +144,7 @@ function ContactPage() {
             We'll respond within one business day.
           </p>
 
-          {sent ? (
-            <div className="mt-8 rounded-lg border border-border bg-secondary/40 p-6 text-sm text-foreground">
-              Thanks — your message has been noted. We'll be in touch soon.
-            </div>
-          ) : (
-            <form onSubmit={onSubmit} className="mt-8 space-y-5">
+          <form onSubmit={onSubmit} className="mt-8 space-y-5">
               <Field label="Name" name="name" type="text" required />
               <Field label="Email" name="email" type="email" required />
               <Field label="Company" name="company" type="text" />
@@ -155,8 +170,10 @@ function ContactPage() {
               >
                 Send message
               </button>
+              <p className="text-xs text-muted-foreground">
+                Submitting opens your email client with the message pre-filled to admin@vectory.com.my.
+              </p>
             </form>
-          )}
         </div>
       </section>
     </PageShell>

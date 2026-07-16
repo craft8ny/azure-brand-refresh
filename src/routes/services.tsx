@@ -3,6 +3,7 @@ import { Plane, Ruler, Radar, Check, Map, Satellite, Drill, GraduationCap } from
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { CtaBand } from "@/components/home/CtaBand";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 const TITLE = "Services — Aerial, Terrestrial & Underground Mapping";
 const DESCRIPTION =
@@ -145,14 +146,13 @@ function ServicesPage() {
                 ))}
               </ul>
             </div>
-            <div
+            <ImagePlaceholder
+              label={`${title} image`}
               className={
                 idx % 2 === 1
-                  ? "order-1 aspect-[4/3] rounded-2xl shadow-[var(--shadow-elegant)] md:order-1"
-                  : "order-1 aspect-[4/3] rounded-2xl shadow-[var(--shadow-elegant)] md:order-2"
+                  ? "order-1 aspect-[4/3] w-full shadow-[var(--shadow-elegant)] md:order-1"
+                  : "order-1 aspect-[4/3] w-full shadow-[var(--shadow-elegant)] md:order-2"
               }
-              style={{ background: "var(--gradient-brand)" }}
-              aria-hidden
             />
           </section>
         ))}
