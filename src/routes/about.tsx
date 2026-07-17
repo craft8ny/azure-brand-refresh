@@ -103,17 +103,17 @@ function AboutPage() {
         subtitle="Malaysian geospatial specialists shaping how infrastructure, energy and environment projects are surveyed, modelled and understood."
       />
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr,1fr] md:items-center">
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[1.1fr,1fr] md:items-center md:py-24">
         <img
           src={companyAsset.url}
           alt="VTS Universe head office"
-          className="aspect-[4/3] max-h-[520px] w-full rounded-2xl bg-muted object-cover shadow-[var(--shadow-elegant)]"
+          className="aspect-[4/3] max-h-[360px] w-full rounded-2xl bg-muted object-cover shadow-[var(--shadow-elegant)] md:max-h-[520px]"
         />
         <div>
-          <h2 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+          <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
             The Company
           </h2>
-          <p className="mt-6 text-justify text-muted-foreground">
+          <p className="mt-5 text-justify text-muted-foreground sm:mt-6">
             Previously known as Vectory Techno Solutions, VTS Universe Sdn Bhd
             which was incorporated in January 2016, is a service provider that
             focuses on technological solutions for various industries such as
@@ -136,14 +136,14 @@ function AboutPage() {
       </section>
 
       <section className="bg-card">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr,1fr] md:items-center">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[1.1fr,1fr] md:items-center md:py-24">
           <img
             src={missionAsset.url}
             alt="LiDAR terrain elevation map produced by VTS Universe"
-            className="aspect-[4/3] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
+            className="aspect-[4/3] max-h-[360px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:max-h-[520px]"
           />
           <div>
-            <h2 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+            <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
               Mission
             </h2>
             <p className="mt-4 text-lg font-medium text-foreground">
@@ -162,14 +162,14 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr,1fr] md:items-center">
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[1.1fr,1fr] md:items-center md:py-24">
         <img
           src={visionAsset.url}
           alt="The VTS Universe team"
-          className="aspect-[4/3] max-h-[520px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)]"
+          className="aspect-[4/3] max-h-[360px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:max-h-[520px]"
         />
         <div>
-          <h2 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+          <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Vision
           </h2>
           <p className="mt-4 text-lg font-medium text-foreground">
@@ -187,7 +187,7 @@ function AboutPage() {
       </section>
 
       <section className="bg-card">
-        <div className="mx-auto max-w-5xl px-6 py-24">
+        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-20 md:py-24">
           <div className="max-w-2xl">
             <span className="text-xs font-medium uppercase tracking-widest text-accent">
               Watch
@@ -212,7 +212,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section className="mx-auto max-w-7xl px-6 py-14 sm:py-20 md:py-24">
         <div className="max-w-2xl">
           <span className="text-xs font-medium uppercase tracking-widest text-accent">Leadership</span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
