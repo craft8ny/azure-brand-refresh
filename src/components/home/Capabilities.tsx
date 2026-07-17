@@ -37,7 +37,7 @@ export function Capabilities() {
         {items.map(({ icon: Icon, title, desc }) => (
           <article
             key={title}
-            className="group rounded-xl border border-border bg-card p-8 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-accent"
+            className="group rounded-xl border border-border bg-card p-8 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-accent hover:shadow-[var(--shadow-elegant)]"
           >
             <div className="grid h-11 w-11 place-items-center rounded-lg bg-secondary/40 text-primary transition-colors group-hover:bg-[image:var(--gradient-brand)] group-hover:text-primary-foreground">
               <Icon className="h-5 w-5" />
