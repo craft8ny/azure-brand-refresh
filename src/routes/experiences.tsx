@@ -227,7 +227,7 @@ function ExperiencesPage() {
                 src={p.image}
                 alt={p.title}
                 label="Project image"
-                className="aspect-[4/3] w-full max-h-[280px] md:max-h-none"
+                className="aspect-[4/3] w-full max-h-[200px] md:max-h-[260px]"
                 rounded="rounded-xl"
               />
               <div>

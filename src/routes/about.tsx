@@ -107,7 +107,7 @@ function AboutPage() {
         <img
           src={companyAsset.url}
           alt="VTS Universe head office"
-          className="aspect-[4/3] max-h-[360px] w-full rounded-2xl bg-muted object-cover shadow-[var(--shadow-elegant)] md:max-h-[520px]"
+          className="aspect-[4/3] max-h-[260px] w-full rounded-2xl bg-muted object-cover shadow-[var(--shadow-elegant)] md:max-h-[380px]"
         />
         <div>
           <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
@@ -140,7 +140,7 @@ function AboutPage() {
           <img
             src={missionAsset.url}
             alt="LiDAR terrain elevation map produced by VTS Universe"
-            className="aspect-[4/3] max-h-[360px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:max-h-[520px]"
+            className="aspect-[4/3] max-h-[260px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:max-h-[380px]"
           />
           <div>
             <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
@@ -166,7 +166,7 @@ function AboutPage() {
         <img
           src={visionAsset.url}
           alt="The VTS Universe team"
-          className="aspect-[4/3] max-h-[360px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:max-h-[520px]"
+          className="aspect-[4/3] max-h-[260px] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:max-h-[380px]"
         />
         <div>
           <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl">
