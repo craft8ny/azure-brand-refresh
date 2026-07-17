@@ -208,7 +208,7 @@ function ExperiencesPage() {
         subtitle="A selection of projects delivered across infrastructure, energy, forestry and municipal sectors."
       />
 
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section className="mx-auto max-w-7xl px-6 py-14 sm:py-20 md:py-24">
         <div className="max-w-2xl">
           <span className="text-xs font-medium uppercase tracking-widest text-accent">
             Key Project Experiences
@@ -217,27 +217,27 @@ function ExperiencesPage() {
             Work we're proud of
           </h2>
         </div>
-        <div className="mt-12 space-y-8">
+        <div className="mt-10 space-y-6 sm:mt-12 sm:space-y-8">
           {projects.map((p) => (
             <article
               key={p.title}
-              className="group grid gap-8 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-accent hover:shadow-[var(--shadow-elegant)] md:grid-cols-[1fr,1.5fr] md:p-8"
+              className="group grid gap-6 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-accent hover:shadow-[var(--shadow-elegant)] sm:gap-8 sm:p-6 md:grid-cols-[1fr,1.5fr] md:p-8"
             >
               <ImagePlaceholder
                 src={p.image}
                 alt={p.title}
                 label="Project image"
-                className="aspect-[4/3] w-full"
+                className="aspect-[4/3] w-full max-h-[280px] md:max-h-none"
                 rounded="rounded-xl"
               />
               <div>
                 <span className="text-xs font-medium uppercase tracking-widest text-accent">
                   {p.tag}
                 </span>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
+                <h3 className="mt-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
                   {p.title}
                 </h3>
-                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground sm:mt-5">
                   {p.bullets.map((b) => (
                     <li key={b} className="flex gap-2">
                       <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
