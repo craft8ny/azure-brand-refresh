@@ -221,7 +221,7 @@ function ExperiencesPage() {
           {projects.map((p) => (
             <article
               key={p.title}
-              className="grid gap-8 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] md:grid-cols-[1fr,1.5fr] md:p-8"
+              className="group grid gap-8 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-accent hover:shadow-[var(--shadow-elegant)] md:grid-cols-[1fr,1.5fr] md:p-8"
             >
               <ImagePlaceholder
                 src={p.image}
