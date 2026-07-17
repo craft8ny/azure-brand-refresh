@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { type FormEvent } from "react";
-import { Mail, MapPin, Phone, Globe } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { Mail, MapPin, Phone, Globe, CheckCircle2, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 
@@ -23,31 +24,41 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") ?? "");
-    const email = String(data.get("email") ?? "");
-    const company = String(data.get("company") ?? "");
-    const message = String(data.get("message") ?? "");
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      company: String(data.get("company") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
 
-    const subject = `New enquiry from ${name}${company ? ` (${company})` : ""}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      company ? `Company: ${company}` : null,
-      "",
-      "Project details:",
-      message,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const mailto = `mailto:admin@vectory.com.my?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+      };
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error ?? "Failed to send message.");
+      }
+      toast.success("Message sent — we'll get back to you within one business day.");
+      setStatus("sent");
+      form.reset();
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Failed to send message.";
+      toast.error(msg);
+      setStatus("idle");
+    }
   }
 
   return (
@@ -144,6 +155,25 @@ function ContactPage() {
             We'll respond within one business day.
           </p>
 
+          {status === "sent" ? (
+            <div className="mt-8 flex flex-col items-center rounded-xl border border-accent/40 bg-accent/5 p-8 text-center">
+              <CheckCircle2 className="h-12 w-12 text-accent" />
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                Message sent
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Thanks — your message has been delivered to
+                admin@vectory.com.my. We'll respond within one business day.
+              </p>
+              <button
+                type="button"
+                onClick={() => setStatus("idle")}
+                className="mt-6 inline-flex h-10 items-center rounded-md border border-border px-5 text-sm font-medium text-foreground hover:border-accent hover:text-accent"
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
           <form onSubmit={onSubmit} className="mt-8 space-y-5">
               <Field label="Name" name="name" type="text" required />
               <Field label="Email" name="email" type="email" required />
@@ -166,14 +196,23 @@ function ContactPage() {
               </div>
               <button
                 type="submit"
-                className="inline-flex h-11 items-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-0.5"
+                disabled={status === "sending"}
+                className="inline-flex h-11 items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
               >
-                Send message
+                {status === "sending" ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Sending…
+                  </>
+                ) : (
+                  "Send message"
+                )}
               </button>
               <p className="text-xs text-muted-foreground">
-                Submitting opens your email client with the message pre-filled to admin@vectory.com.my.
+                Your message is sent directly to admin@vectory.com.my — no email client required.
               </p>
             </form>
+          )}
         </div>
       </section>
     </PageShell>
