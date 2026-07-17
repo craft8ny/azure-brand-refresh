@@ -245,7 +245,7 @@ function AboutPage() {
 function TeamCard({ member }: { member: (typeof team)[number] }) {
   const [open, setOpen] = useState(false);
   return (
-    <article className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
+    <article className="group rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-accent hover:shadow-[var(--shadow-elegant)]">
       <img
         src={member.photo}
         alt={member.name}
