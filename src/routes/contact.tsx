@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, Phone, Globe, CheckCircle2, Loader2 } from "lucide-react";
-import { toast } from "sonner";
+import { Mail, MapPin, Phone, Globe, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 
@@ -24,7 +23,8 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -56,8 +56,8 @@ function ContactPage() {
       form.reset();
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Failed to send message.";
-      toast.error(msg);
-      setStatus("idle");
+      setErrorMsg(msg);
+      setStatus("error");
     }
   }
 
@@ -159,11 +159,10 @@ function ContactPage() {
             <div className="mt-8 flex flex-col items-center rounded-xl border border-accent/40 bg-accent/5 p-8 text-center">
               <CheckCircle2 className="h-12 w-12 text-accent" />
               <h3 className="mt-4 text-lg font-semibold text-foreground">
-                Message sent
+                Message sent!
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Thanks — your message has been delivered to
-                admin@vectory.com.my. We'll respond within one business day.
+                Thanks — we'll respond within one business day.
               </p>
               <button
                 type="button"
@@ -171,6 +170,21 @@ function ContactPage() {
                 className="mt-6 inline-flex h-10 items-center rounded-md border border-border px-5 text-sm font-medium text-foreground hover:border-accent hover:text-accent"
               >
                 Send another message
+              </button>
+            </div>
+          ) : status === "error" ? (
+            <div className="mt-8 flex flex-col items-center rounded-xl border border-destructive/40 bg-destructive/5 p-8 text-center">
+              <XCircle className="h-12 w-12 text-destructive" />
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                Something went wrong
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">{errorMsg}</p>
+              <button
+                type="button"
+                onClick={() => setStatus("idle")}
+                className="mt-6 inline-flex h-10 items-center rounded-md border border-border px-5 text-sm font-medium text-foreground hover:border-destructive hover:text-destructive"
+              >
+                Try again
               </button>
             </div>
           ) : (
