@@ -83,7 +83,7 @@ export const Route = createFileRoute("/api/contact")({
           },
           body: JSON.stringify({
             from: "VTS Universe Website <onboarding@resend.dev>",
-            to: ["admin@vectory.com.my"],
+            to: ["firasfaiqshajoeril@gmail.com"],
             reply_to: email,
             subject,
             html,
