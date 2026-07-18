@@ -51,7 +51,6 @@ function ContactPage() {
       if (!res.ok || !json.ok) {
         throw new Error(json.error ?? "Failed to send message.");
       }
-      toast.success("Message sent — we'll get back to you within one business day.");
       setStatus("sent");
       form.reset();
     } catch (err) {
