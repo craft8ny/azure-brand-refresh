@@ -84,14 +84,14 @@ const team = [
 ];
 
 const partners = [
-  "Uji Teguh",
-  "Geocomp",
-  "NZ Geospatial",
-  "Malawati",
-  "Triple Axis",
-  "Digdat",
-  "Examap",
-  "Horizon Ukur",
+  { name: "Uji Teguh",     logo: "/partner-ujiteguh.png" },
+  { name: "Geocomp",       logo: "/partner-geocomp.jpg" },
+  { name: "NZ Geospatial", logo: "/partner-nzgeospatial.jpg" },
+  { name: "MH Malawati",   logo: "/partner-mhmalawati.jpg" },
+  { name: "Triple Axis",   logo: "/client-tripleaxis.jpg" },
+  { name: "Digdat",        logo: "/partner-digdat.jpg" },
+  { name: "Examap",        logo: "/partner-examap.jpg" },
+  { name: "Horizon Ukur",  logo: "/partner-horizonukur.jpg" },
 ];
 
 function AboutPage() {
@@ -233,7 +233,7 @@ function AboutPage() {
           </p>
           <div className="mt-8 grid grid-cols-2 items-center gap-4 sm:grid-cols-4 lg:grid-cols-8">
             {partners.map((p) => (
-              <LogoPlaceholder key={p} name={p} />
+              <LogoPlaceholder key={p.name} name={p.name} src={p.logo} />
             ))}
           </div>
         </div>
