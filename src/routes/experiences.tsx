@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ImagePlaceholder, LogoPlaceholder } from "@/components/ui/ImagePlaceholder";
+import { X } from "lucide-react";
 
 const TITLE = "Experiences — Key Geospatial Projects | VTS Universe";
 const DESCRIPTION =
@@ -218,6 +220,8 @@ const clients = [
 ];
 
 function ExperiencesPage() {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <PageShell>
       <PageHeader
@@ -241,7 +245,10 @@ function ExperiencesPage() {
               key={p.title}
               className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-accent hover:shadow-[var(--shadow-elegant)]"
             >
-              <div className="overflow-hidden">
+              <div
+                className="overflow-hidden cursor-zoom-in"
+                onClick={() => p.image && setLightbox({ src: p.image, alt: p.title })}
+              >
                 <ImagePlaceholder
                   src={p.image}
                   alt={p.title}
@@ -270,6 +277,28 @@ function ExperiencesPage() {
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="max-h-[90vh] max-w-[90vw] rounded-xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       <section className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-16">
