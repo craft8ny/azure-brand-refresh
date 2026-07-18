@@ -33,6 +33,7 @@ const projects: Project[] = [
   {
     tag: "2023 – 2024",
     title: "Petronas Sabah – Sarawak Gas Pipeline",
+    image: "/exp-petronas-sabah-sarawak.jpg",
     bullets: [
       "QC and processing of LiDAR data up to final products",
       "Generated Geo-Hazard Mapping across a 500km+ pipeline stretch",
@@ -42,6 +43,7 @@ const projects: Project[] = [
   {
     tag: "2024",
     title: "Tek Geo Sdn Bhd & MBSA — UAV LiDAR",
+    image: "/exp-tek-geo-mbsa.jpg",
     bullets: [
       "Capture and processing of LiDAR data up to final products",
       "Support for Setia Alam, Sec. U13 Shah Alam flood mitigation for MBSA",
@@ -51,6 +53,7 @@ const projects: Project[] = [
   {
     tag: "2020 – 2021",
     title: "Petronas Carigali Sdn Bhd",
+    image: "/exp-petronas-carigali.jpg",
     bullets: [
       "Sabah–Sarawak Gas Pipeline (SSGP) Airborne LiDAR",
       "GIS and ground survey consultancy service",
@@ -59,6 +62,7 @@ const projects: Project[] = [
   {
     tag: "2023 – 2024",
     title: "Sky Futures (Malaysia) Sdn Bhd",
+    image: "/exp-sky-futures.jpg",
     bullets: [
       "Ultra-high-detail 3-Dimensional Mesh model of Shell Brunei Gas Plant",
       "Generated from a massive volume of UAV photogrammetry data",
@@ -67,6 +71,7 @@ const projects: Project[] = [
   {
     tag: "2023 – 2024",
     title: "MH Malawati Enterprise & Railway Asset Corporation (RAC)",
+    image: "/exp-malawati-rac.jpg",
     bullets: [
       "Vectorising railway and all other RAC assets",
       "Inserting attributes and providing GIS monitoring solutions",
@@ -75,6 +80,7 @@ const projects: Project[] = [
   {
     tag: "2019 – 2022",
     title: "Brunei Survey Department — LiDAR Project Consultation",
+    image: "/exp-brunei-survey.jpg",
     bullets: [
       "Project consultancy for Brunei National Airborne LiDAR & Orthophoto",
     ],
@@ -82,6 +88,7 @@ const projects: Project[] = [
   {
     tag: "2022 – 2023",
     title: "Jabatan Pengairan & Saliran for RS&GIS Consultancy Sdn Bhd",
+    image: "/exp-jps-rsgis.jpg",
     bullets: [
       "Terrain mapping using Airborne LiDAR and orthophoto data",
       "Supplied for Jabatan Pengairan dan Saliran (JPS) flood analysis",
@@ -90,6 +97,7 @@ const projects: Project[] = [
   {
     tag: "2022",
     title: "JENDELA for ZMK Resources",
+    image: "/exp-jendela-zmk.jpg",
     bullets: [
       "Soil Investigation (Mackintosh / JKR Probe method) under Government's JENDELA initiative",
       "Topography survey for new telecommunication towers in Peninsular Malaysia",
@@ -98,6 +106,7 @@ const projects: Project[] = [
   {
     tag: "2020 – 2023",
     title: "Jabatan Ukur dan Pemetaan (JUPEM)",
+    image: "/exp-jabatan-ukur.jpg",
     bullets: [
       "Vector Data Editing service for project JUPEM T7, T8 and T10/2020",
       "T2/2021 Sarawak and T1 2022 Sarawak",
@@ -106,6 +115,7 @@ const projects: Project[] = [
   {
     tag: "2021",
     title: "Lebuhraya Pantai Timur 3 (LPT 3)",
+    image: "/exp-lebuhraya-pantai-timur.jpg",
     bullets: [
       "Terrain mapping using Airborne LiDAR and orthophoto data",
       "For road design and land acquisition planning",
@@ -114,6 +124,7 @@ const projects: Project[] = [
   {
     tag: "2020",
     title: "FGV R&D Sdn Bhd",
+    image: "/exp-fgv-rd.jpg",
     bullets: [
       "Supply of agricultural drone with accessories",
       "Customising sprayer for the drone",
@@ -123,6 +134,7 @@ const projects: Project[] = [
   {
     tag: "2019",
     title: "Jabatan Pengairan & Saliran Malaysia",
+    image: "/exp-jps-malaysia.jpg",
     bullets: [
       "Detail design of river basin flood mitigation plan for Sungai Pinang",
       "Collected LiDAR & imagery data of Georgetown, Pulau Pinang",
@@ -131,6 +143,7 @@ const projects: Project[] = [
   {
     tag: "2017 – 2018",
     title: "Jabatan Pengairan & Saliran Malaysia — Tebrau Drainage Study",
+    image: "/exp-jps-malaysia-2.jpg",
     bullets: [
       "LiDAR data acquisition and processing",
       "Hydrology map generation and GCP survey",
@@ -140,6 +153,7 @@ const projects: Project[] = [
   {
     tag: "UAV LiDAR",
     title: "UAV LiDAR Mapping Over PKPS Plantation in Ulu Bernam",
+    image: "/exp-pkps-plantation.png",
     bullets: [
       "Detail topographical map derived from UAV LiDAR data",
       "Plantation drainage mapping and replantation mapping",
@@ -149,6 +163,7 @@ const projects: Project[] = [
   {
     tag: "2016 – 2018",
     title: "Petronas Gas 3D Asset Mapping",
+    image: "/exp-petronas-3d-asset.png",
     bullets: [
       "Updated drawings for 25 Petronas Gas Malaysia metering stations",
       "Piping & Instrumentation, General Arrangement, Isometric, Civil and Structure",
@@ -158,6 +173,7 @@ const projects: Project[] = [
   {
     tag: "2016 – 2018",
     title: "Petronas Gas Underground Pipeline Mapping",
+    image: "/exp-petronas-underground-pipeline.png",
     bullets: [
       "Route and profile drawings for Shah Alam (163.3km), Seremban (34km), Kuantan (2.1km)",
       "Radio detectors and ground-penetrating radar for buried facilities",
@@ -167,6 +183,7 @@ const projects: Project[] = [
   {
     tag: "2016 – 2017",
     title: "Johor National Park",
+    image: "/exp-johor-national-park.png",
     bullets: [
       "Mapped Gunung Ledang Johor National Park and RAMSAR sites",
       "Sites: Taman Negara Gunung Ledang, RAMSAR Tanjung Piai, Pulau Kukup, Sg. Pulai",
@@ -176,6 +193,7 @@ const projects: Project[] = [
   {
     tag: "2017",
     title: "Bukit Jugra UAV LiDAR",
+    image: "/exp-bukit-jugra.png",
     bullets: [
       "Slope risk study for IKRAM at Bukit Jugra",
       "UAV LiDAR deployed on steep, hazardous terrain unsuitable for conventional survey",
