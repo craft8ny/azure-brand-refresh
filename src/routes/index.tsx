@@ -5,6 +5,7 @@ import { TrustedBy } from "@/components/home/TrustedBy";
 import { Capabilities } from "@/components/home/Capabilities";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { CtaBand } from "@/components/home/CtaBand";
+import { ShowcaseReel } from "@/components/home/ShowcaseReel";
 
 const TITLE = "VTS Universe Sdn Bhd — Aerial LiDAR & Geospatial Mapping";
 const DESCRIPTION =
@@ -30,6 +31,7 @@ function Index() {
       <Hero />
       <TrustedBy />
       <Capabilities />
+      <ShowcaseReel />
       <AboutPreview />
       <CtaBand />
     </PageShell>
