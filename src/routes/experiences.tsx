@@ -239,7 +239,7 @@ function ExperiencesPage() {
           {projects.map((p) => (
             <article
               key={p.title}
-              className="group grid gap-6 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-accent hover:shadow-[var(--shadow-elegant)] sm:gap-8 sm:p-6 md:grid-cols-[1fr,1.5fr] md:p-8"
+              className="group grid gap-6 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-accent hover:shadow-[var(--shadow-elegant)] sm:gap-8 sm:p-6 md:grid-cols-[0.45fr,1fr] md:p-8"
             >
               <ImagePlaceholder
                 src={p.image}

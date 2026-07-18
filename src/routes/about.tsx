@@ -103,7 +103,7 @@ function AboutPage() {
         subtitle="Malaysian geospatial specialists shaping how infrastructure, energy and environment projects are surveyed, modelled and understood."
       />
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[1.1fr,1fr] md:items-center md:py-24">
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[0.5fr,1fr] md:items-center md:py-24">
         <img
           src={companyAsset.url}
           alt="VTS Universe head office"
@@ -136,7 +136,7 @@ function AboutPage() {
       </section>
 
       <section className="bg-card">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[1.1fr,1fr] md:items-center md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[0.5fr,1fr] md:items-center md:py-24">
           <img
             src={missionAsset.url}
             alt="LiDAR terrain elevation map produced by VTS Universe"
@@ -162,7 +162,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[1.1fr,1fr] md:items-center md:py-24">
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:gap-12 sm:py-20 md:grid-cols-[0.5fr,1fr] md:items-center md:py-24">
         <img
           src={visionAsset.url}
           alt="The VTS Universe team"
