@@ -235,27 +235,29 @@ function ExperiencesPage() {
             Work we're proud of
           </h2>
         </div>
-        <div className="mt-10 space-y-6 sm:mt-12 sm:space-y-8">
+        <div className="mt-10 grid gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <article
               key={p.title}
-              className="group grid gap-6 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-accent hover:shadow-[var(--shadow-elegant)] sm:gap-8 sm:p-6 md:grid-cols-[0.45fr,1fr] md:p-8"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-accent hover:shadow-[var(--shadow-elegant)]"
             >
-              <ImagePlaceholder
-                src={p.image}
-                alt={p.title}
-                label="Project image"
-                className="h-52 w-full"
-                rounded="rounded-xl"
-              />
-              <div>
+              <div className="overflow-hidden">
+                <ImagePlaceholder
+                  src={p.image}
+                  alt={p.title}
+                  label="Project image"
+                  className="h-48 w-full transition-transform duration-500 group-hover:scale-105"
+                  rounded="rounded-none"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-6">
                 <span className="text-xs font-medium uppercase tracking-widest text-accent">
                   {p.tag}
                 </span>
-                <h3 className="mt-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                <h3 className="mt-2 text-base font-semibold tracking-tight text-foreground sm:text-lg">
                   {p.title}
                 </h3>
-                <ul className="mt-4 space-y-2 text-sm text-muted-foreground sm:mt-5">
+                <ul className="mt-4 flex-1 space-y-2 text-sm text-muted-foreground">
                   {p.bullets.map((b) => (
                     <li key={b} className="flex gap-2">
                       <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
