@@ -196,7 +196,7 @@ function ContactPage() {
                   htmlFor="message"
                   className="block text-xs font-medium uppercase tracking-widest text-muted-foreground"
                 >
-                  Project details
+                  Inquiries
                 </label>
                 <textarea
                   id="message"
