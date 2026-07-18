@@ -204,19 +204,24 @@ const projects: Project[] = [
   },
 ];
 
-const clients = [
-  "Woolpert",
-  "Sky Futures",
-  "Tek Geo",
-  "Brunei Survey Dept",
-  "Uji Teguh",
-  "Infotrax",
-  "Ingress",
-  "SIRIM",
-  "FGV",
-  "PKPS",
-  "Jurupro",
-  "Tiemura",
+const clients: { name: string; logo: string }[] = [
+  { name: "Woolpert",               logo: "/client-woolpert.jpg" },
+  { name: "Sky Futures",            logo: "/client-skyfutures.jpg" },
+  { name: "Tek Geo",                logo: "/client-tekgeo.jpg" },
+  { name: "Brunei Survey Dept",     logo: "/client-bruneisurveydept.jpg" },
+  { name: "Uji Teguh",              logo: "/client-ujiteguh.png" },
+  { name: "Infotrax",               logo: "/client-infotrax.jpg" },
+  { name: "Ingress",                logo: "/client-ingress.png" },
+  { name: "SIRIM",                  logo: "/client-sirim.jpg" },
+  { name: "FGV",                    logo: "/client-fgv.jpg" },
+  { name: "PKPS",                   logo: "/client-pkps.jpg" },
+  { name: "Jurupro",                logo: "/client-jurupro.png" },
+  { name: "Tiemura",                logo: "/client-tiemura.png" },
+  { name: "Triple Axis",            logo: "/client-tripleaxis.jpg" },
+  { name: "GSSB",                   logo: "/client-gssb.png" },
+  { name: "RS & GIS",               logo: "/client-rsgis.jpg" },
+  { name: "AA Geomatics",           logo: "/client-aa-geomatics.png" },
+  { name: "JPS Selangor",           logo: "/client-jps-selangor.jpg" },
 ];
 
 function ExperiencesPage() {
@@ -307,7 +312,7 @@ function ExperiencesPage() {
           </p>
           <div className="mt-8 grid grid-cols-2 items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {clients.map((c) => (
-              <LogoPlaceholder key={c} name={c} />
+              <LogoPlaceholder key={c.name} name={c.name} src={c.logo} />
             ))}
           </div>
         </div>
