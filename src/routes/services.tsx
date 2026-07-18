@@ -3,7 +3,6 @@ import { Plane, Ruler, Radar, Check, Map, Satellite, Drill, GraduationCap } from
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { CtaBand } from "@/components/home/CtaBand";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 const TITLE = "Services — Aerial, Terrestrial & Underground Mapping";
 const DESCRIPTION =
@@ -27,6 +26,7 @@ const services = [
   {
     icon: Plane,
     title: "Airborne Mapping",
+    image: "/service-airborne.jpg",
     lead: "High-precision data capture from the air, at any scale.",
     items: [
       "Aerial photography & videography",
@@ -43,6 +43,7 @@ const services = [
   {
     icon: Ruler,
     title: "Terrestrial Mapping",
+    image: "/service-terrestrial.jpg",
     lead: "Ground-based surveys tuned for accuracy and site conditions.",
     items: [
       "Cadastral and land demarcation surveys",
@@ -54,6 +55,7 @@ const services = [
   {
     icon: Radar,
     title: "Underground Utility Mapping",
+    image: "/service-underground.jpg",
     lead: "Non-intrusive subsurface detection you can build around.",
     items: [
       "3-Dimensional underground utilities detection survey and mapping",
@@ -63,6 +65,7 @@ const services = [
   {
     icon: Map,
     title: "Geographical Information Systems",
+    image: "/service-gis.jpg",
     lead: "Consultancy, system development and database management services.",
     items: [
       "GIS plantation tree census (using GPS real-time solution)",
@@ -74,6 +77,7 @@ const services = [
   {
     icon: Satellite,
     title: "Satellite-Based Data Mapping",
+    image: "/service-satellite.jpg",
     lead: "Satellite imagery and remote-sensing data, processed for decision-makers.",
     items: [
       "Satellite image / remote sensing data manipulation and mapping",
@@ -83,6 +87,7 @@ const services = [
   {
     icon: Drill,
     title: "Soil Investigation",
+    image: "/service-soil.jpg",
     lead: "Ground-truth investigation for safe, informed engineering design.",
     items: [
       "Borehole drilling",
@@ -94,6 +99,7 @@ const services = [
   {
     icon: GraduationCap,
     title: "Training — Geospatial Services",
+    image: "/service-training.jpg",
     lead: "Hands-on training programs to build in-house geospatial capability.",
     items: [
       "Mapping data viewing & manipulation",
@@ -115,7 +121,7 @@ function ServicesPage() {
       />
 
       <div className="mx-auto max-w-7xl space-y-24 px-6 py-24">
-        {services.map(({ icon: Icon, title, lead, items }, idx) => (
+        {services.map(({ icon: Icon, title, image, lead, items }, idx) => (
           <section
             key={title}
             className="grid gap-12 md:grid-cols-2 md:items-center"
@@ -146,12 +152,13 @@ function ServicesPage() {
                 ))}
               </ul>
             </div>
-            <ImagePlaceholder
-              label={`${title} image`}
+            <img
+              src={image}
+              alt={title}
               className={
                 idx % 2 === 1
-                  ? "order-1 aspect-[4/3] w-full shadow-[var(--shadow-elegant)] md:order-1"
-                  : "order-1 aspect-[4/3] w-full shadow-[var(--shadow-elegant)] md:order-2"
+                  ? "order-1 aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:order-1"
+                  : "order-1 aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-elegant)] md:order-2"
               }
             />
           </section>
