@@ -1,4 +1,5 @@
 import { Plane, Ruler, Radar } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const items = [
   {
@@ -21,7 +22,7 @@ const items = [
 export function Capabilities() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="max-w-2xl">
+      <Reveal className="max-w-2xl">
         <span className="text-xs font-medium uppercase tracking-widest text-accent">
           Capabilities
         </span>
@@ -32,19 +33,18 @@ export function Capabilities() {
           Purpose-built teams and instruments for every scale — from a single
           site plan to nationwide pipeline corridors.
         </p>
-      </div>
+      </Reveal>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
-        {items.map(({ icon: Icon, title, desc }) => (
-          <article
-            key={title}
-            className="group rounded-xl border border-border bg-card p-8 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-accent hover:shadow-[var(--shadow-elegant)]"
-          >
-            <div className="grid h-11 w-11 place-items-center rounded-lg bg-secondary/40 text-primary transition-colors group-hover:bg-[image:var(--gradient-brand)] group-hover:text-primary-foreground">
-              <Icon className="h-5 w-5" />
-            </div>
-            <h3 className="mt-6 text-lg font-semibold text-foreground">{title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-          </article>
+        {items.map(({ icon: Icon, title, desc }, i) => (
+          <Reveal key={title} delay={i * 100}>
+            <article className="group h-full rounded-xl border border-border bg-card p-8 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-accent hover:shadow-[var(--shadow-elegant)]">
+              <div className="grid h-11 w-11 place-items-center rounded-lg bg-secondary/40 text-primary transition-colors group-hover:bg-[image:var(--gradient-brand)] group-hover:text-primary-foreground">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-6 text-lg font-semibold text-foreground">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+            </article>
+          </Reveal>
         ))}
       </div>
     </section>
