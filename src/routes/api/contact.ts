@@ -51,7 +51,6 @@ function buildHtml(
         <!-- Header -->
         <tr>
           <td style="background:linear-gradient(135deg,#0f3460 0%,#1a5276 60%,#1f618d 100%);padding:36px 40px;text-align:center;">
-            <img src="${LOGO_DATA_URI}" alt="VTS Universe" width="80" height="60" style="object-fit:contain;display:block;margin:0 auto 16px;">
             <div style="color:#ffffff;font-size:20px;font-weight:700;letter-spacing:0.5px;">VTS Universe Sdn Bhd</div>
             <div style="color:#93c5fd;font-size:13px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;">New Enquirey</div>
           </td>
