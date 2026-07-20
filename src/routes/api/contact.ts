@@ -52,7 +52,7 @@ function buildHtml(
         <tr>
           <td style="background:linear-gradient(135deg,#0f3460 0%,#1a5276 60%,#1f618d 100%);padding:36px 40px;text-align:center;">
             <div style="color:#ffffff;font-size:20px;font-weight:700;letter-spacing:0.5px;">VTS Universe Sdn Bhd</div>
-            <div style="color:#93c5fd;font-size:13px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;">New Enquirey</div>
+            <div style="color:#93c5fd;font-size:13px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;">New Inquiry</div>
           </td>
         </tr>
 
@@ -60,7 +60,7 @@ function buildHtml(
         <tr>
           <td style="background:#ffffff;padding:40px;">
             <p style="margin:0 0 28px;font-size:15px;color:#374151;line-height:1.6;">
-              A new enquiry has been submitted via the VTS Universe website. Details are below.
+              A new inquiry has been submitted via the VTS Universe website. Details are below.
             </p>
 
             <table width="100%" cellpadding="0" cellspacing="0">
@@ -179,11 +179,11 @@ export const Route = createFileRoute("/api/contact")({
           );
         }
 
-        const subject = `New enquiry from ${name}${company ? ` — ${company}` : ""}`;
+        const subject = `New inquiry from ${name}${company ? ` — ${company}` : ""}`;
         const html = buildHtml(name, email, company, message);
 
         const text = [
-          `New enquiry from the VTS Universe website`,
+          `New inquiry from the VTS Universe website`,
           ``,
           `Name: ${name}`,
           `Email: ${email}`,
